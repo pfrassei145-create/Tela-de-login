@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4CAF50">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela Inicial</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #b34b8b, #f088eb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #f147a5d5;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00c6ff;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Bem-vinda 💖</h2>
+    <p>Acesse o sistema clicando abaixo</p>
+
+    <button onclick="irParaLogin()">Ir para Login</button>
+  </div>
+
+  <script>
+    function irParaLogin() {
+      window.location.href = "login.html";
+    }
+
+    // Service Worker (igual ao do login)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function() {
+          console.log("Service Worker registrado");
+        })
+        .catch(function(error) {
+          console.log("Erro ao registrar:", error);
+        });
+    }
+  </script>
+
+</body>
+</html>

@@ -62,15 +62,41 @@
     }
   </style>
 </head>
+
+<script>
+  function fazerLogin(event) {
+    event.preventDefault();
+
+    const rm = document.getElementById("rm").value;
+    const senha = document.getElementById("senha").value;
+
+    // LOGIN SIMULADO
+    const rmCorreto = "23728";
+    const senhaCorreta = "1234";
+
+    if (rm === rmCorreto && senha === senhaCorreta) {
+      alert("Login realizado com sucesso!");
+
+      // Redireciona (crie essa página depois)
+      window.location.href = "home.html";
+    } else {
+      document.getElementById("mensagemErro").innerText = "RM ou senha inválidos!";
+    }
+  }
+</script>
+
 <body>
 
   <div class="login-container">
     <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Usuário" required>
-      <input type="password" placeholder="Senha" required>
-      <button type="submit">Entrar</button>
-    </form>
+<form onsubmit="fazerLogin(event)">
+  <input type="text" id="rm" placeholder="Digite seu RM" required>
+  <input type="password" id="senha" placeholder="Digite sua senha" required>
+  <button type="submit">Entrar</button>
+</form>
+
+<p id="mensagemErro" style="color:red; text-align:center;"></p>
+
     <div class="footer">
       <p>Esqueceu a senha?</p>
     </div>
