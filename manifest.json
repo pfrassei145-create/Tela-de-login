@@ -1,13 +1,16 @@
 {
-  "name": "Tela de Login",
-  "short_name": "Login",
-  "description": "PWA de tela de login com suporte offline e instalação.",
+  "id": "/",
+  "name": "PWA App",
+  "short_name": "PWA",
+  "description": "Aplicativo PWA com suporte offline.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
   "orientation": "portrait",
+  "lang": "pt-BR",
+
   "icons": [
     {
       "src": "icons/icon-192.png",
