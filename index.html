@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4CAF50">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela Inicial</title>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -38,21 +35,18 @@
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     button:hover {
       background: #00c6ff;
     }
   </style>
-
 </head>
-
 <body>
-
   <div class="container">
     <h2>Bem-vinda 💖</h2>
     <p>Acesse o sistema clicando abaixo</p>
-
     <button onclick="irParaLogin()">Ir para Login</button>
     <button id="installBtn" style="display:none;">Instalar App</button>
   </div>
@@ -74,7 +68,7 @@
     installBtn.addEventListener('click', async () => {
       if (!deferredPrompt) return;
       deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
+      const choiceResult = await deferredPrompt.userChoice;
       deferredPrompt = null;
       installBtn.style.display = 'none';
     });
@@ -89,6 +83,5 @@
         });
     }
   </script>
-
 </body>
 </html>

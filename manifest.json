@@ -1,7 +1,9 @@
 {
   "name": "Tela de Login",
   "short_name": "Login",
-  "start_url": "./",
+  "description": "PWA de tela de login com suporte offline e instalação.",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",

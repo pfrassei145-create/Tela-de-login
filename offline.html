@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4CAF50">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tela Inicial</title>
-
+  <title>Offline</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -26,7 +23,7 @@
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      width: 300px;
+      width: 320px;
     }
 
     button {
@@ -38,47 +35,22 @@
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     button:hover {
       background: #00c6ff;
     }
   </style>
-
 </head>
-
 <body>
-
   <div class="container">
-    <h2>Bem-vinda 💖</h2>
-    <p>Acesse o sistema clicando abaixo</p>
-
-    <button onclick="irParaLogin()">Ir para Login</button>
-    <button id="installBtn" style="display:none;">Instalar App</button>
+    <h2>Você está offline</h2>
+    <p>O aplicativo está em modo offline. Verifique sua conexão ou volte mais tarde.</p>
+    <button onclick="location.href='index.html'">Voltar para o início</button>
   </div>
 
   <script>
-    function irParaLogin() {
-      window.location.href = "login.html";
-    }
-
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      deferredPrompt = event;
-      installBtn.style.display = 'block';
-    });
-
-    installBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      installBtn.style.display = 'none';
-    });
-
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js')
         .then(function() {
@@ -89,6 +61,5 @@
         });
     }
   </script>
-
 </body>
 </html>

@@ -1,9 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4CAF50">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #b34b8b, #f088eb);
+      color: white;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.12);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
-  <h1>Bem-vinda!</h1>
+  <div class="container">
+    <h1>Bem-vinda!</h1>
+    <p>Você está usando o aplicativo no modo PWA.</p>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function() {
+          console.log("Service Worker registrado");
+        })
+        .catch(function(error) {
+          console.log("Erro ao registrar:", error);
+        });
+    }
+  </script>
 </body>
 </html>
