@@ -72,16 +72,17 @@
       Você está usando o aplicativo no modo PWA.
     </p>
 
-    <button onclick="voltarInicio()">
-      Voltar
+    <button onclick="sair()">
+      Sair
     </button>
 
   </div>
 
   <script>
 
-    function voltarInicio() {
-      window.location.href = "index.html";
+    function sair() {
+      // Simples 'logout' que leva de volta à tela de login
+      window.location.href = "login.html";
     }
 
     if ('serviceWorker' in navigator) {
