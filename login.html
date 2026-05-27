@@ -75,10 +75,10 @@
     const senhaCorreta = "1234";
 
     if (rm === rmCorreto && senha === senhaCorreta) {
-      alert("Login realizado com sucesso!");
-
-      // Redireciona (crie essa página depois)
-      window.location.href = "home.html";
+        // Marca sessão como autenticada e redireciona
+        sessionStorage.setItem('loggedIn', 'true');
+        alert("Login realizado com sucesso!");
+        window.location.href = "home.html";
     } else {
       document.getElementById("mensagemErro").innerText = "RM ou senha inválidos!";
     }

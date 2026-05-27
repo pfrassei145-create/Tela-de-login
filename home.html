@@ -79,9 +79,14 @@
   </div>
 
   <script>
+    // Protege a página: se não estiver logado, redireciona para login
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
 
     function sair() {
-      // Simples 'logout' que leva de volta à tela de login
+      // Limpa sessão e volta para a tela de login
+      sessionStorage.removeItem('loggedIn');
       window.location.href = "login.html";
     }
 
