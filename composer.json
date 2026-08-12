@@ -1,0 +1,11 @@
+{
+  "name": "tela-de-login/php-app",
+  "description": "Projeto PHP com login usando Composer e autoload",
+  "type": "project",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
